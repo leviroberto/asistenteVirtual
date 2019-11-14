@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGryeleft">#F0EDED</color>
+    <color name="colorGryeRight">#D3D0D0</color>
+    <color name="colorGryeDark">#696868</color>
+
+
+    <color name="white">#FFFFFF</color>
+    <color name="grye">#DFDCDC</color>
+    <color name="gryeDark">#696868</color>
+    <color name="darkDialog">#00000000</color>
+    <color name="colorPrimary">#181717</color>
+    <color name="colorPrimaryDark">#0288D1</color>
+    <color name="colorAccent">#E040FB</color>
+    <color name="colorLightPrimary">#B3E5FC</color>
+    <color name="colorTextIcon">#FFFFFF</color>
+    <color name="colorPrimaryText">#4D4C4C</color>
+    <color name="colorBlack">#666464</color>
+    <color name="colorSecundaryText">#757575</color>
+    <color name="colorPrimaryGreen">#00C851</color>
+    <color name="colorPrimaryBlue">#012269</color>
+    <color name="colorPrimaryBlueText">#2121CA</color>
+    <color name="colorOrange">#FC030D</color>
+    <color name="colorPrimaryOrange">#FF8800</color>
+    <color name="colorPrimaryRed">#F80134</color>
+    <color name="colorGry">#B8D7E9</color>
+    <color name="colorLogin">#1E4EFF</color>
+    <color name="colorIconos">#5D5D5D</color>
+    <color name="refresh">#008000</color>
+    <color name="refresh1">#008080</color>
+    <color name="refresh2">#800080</color>
+    <color name="colorMoreado">#6328C8</color>
+    <color name="colorsoles">#656CBB</color>
+    <color name="colorhistorial">#B280C5</color>
+    <color name="titleBadgeText">#adafb1</color>
+    <color name="contentBadgeTitle">#a9a9a9</color>
+    <color name="titleBadgeTitle">#adafb1</color>
+    <color name="colorCard">#9A98FB</color>
+
+
+    <!-- Color para el intro de la aplicacion -->
+
+    <color name="colorGradientstart">#4c84ff</color>
+    <color name="colorGradientend">#18a3fe</color>
+
+    <color name="tab_indicador">#c0c0c0</color>
+    <color name="colortitle">#000</color>
+    <color name="colordescripcion">#656565</color>
+
+
+    <!--colors for profile-->
+    <color name="profilePrimaryDark">#FF3B30</color>
+    <color name="profileAccentColor">#F7F7F7</color>
+    <color name="whiteTextColor">#fff</color>
+    <color name="profileBackground">#fff</color>
+    <color name="blackTextColor">#000</color>
+    <color name="profileEditTextColor">#707070</color>
+
+
+    <!--gradient card-->
+
+    <color name="esquina1">#3CC3DA</color>
+
+    <color name="card_cvv_color">#383838</color>
+    <color name="corlor_view_navega">#7E10E0</color>
+    <color name="color_dias">#6328C8</color>
+
+
 </resources>

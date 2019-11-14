@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "196300408997",
+    "firebase_url": "https://asistenteucv-f0ac9.firebaseio.com",
+    "project_id": "asistenteucv-f0ac9",
+    "storage_bucket": "asistenteucv-f0ac9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196300408997:android:ab736fbdcb51b38b4f654c",
+        "android_client_info": {
+          "package_name": "com.velasquez.asistentevirtualucv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "196300408997-72m27mascsti2ru0np5lbr55aag5bk0o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.velasquez.asistentevirtualucv",
+            "certificate_hash": "3bf301d113f00cc2aaba7351efe165346cfce30c"
+          }
+        },
+        {
+          "client_id": "196300408997-qd38scqa8j1u6re21llmlgkmrvgr8nvn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDtALdt8d6NA-GGniQr6HIO6t7c2D5pxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "196300408997-qd38scqa8j1u6re21llmlgkmrvgr8nvn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

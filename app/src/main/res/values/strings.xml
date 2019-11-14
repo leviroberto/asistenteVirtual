@@ -1,5 +1,44 @@
 <resources>
-    <string name="app_name">LazaroDevApiAiExample</string>
-
-    <string name="btn_voice_text">Presiona aquí</string>
+    <string name="app_name">Asistente</string>
+    <string name="lbl_Nombre">Nombre</string>
+    <string name="lbl_ciclo">Ciclo</string>
+    <string name="lbl_descripcion">Descripción</string>
+    <string name="lbl_Apellidos">Apellidos</string>
+    <string name="lbl_Dni">DNI</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="lbl_crear">Crear</string>
+    <string name="lbl_docente">Docente</string>
+    <string name="lbl_llenarDatos">Llenar todos los datos obligatirios</string>
+    <string name="lbl_SinInternet">Sin Internet</string>
+    <string name="title_activity_agregar_curso">AgregarCursoActivity</string>
+    <string name="lbl_curso">Curso</string>
+    <string name="lbl_creditos">Creditos</string>
+    <string name="lbl_hora">Hora</string>
+    <string name="lbl_periodo">Periodo</string>
+    <string name="lbl_seccion">Sección</string>
+    <string name="lbl_dia">Dira</string>
+    <string name="lbl_horaInicio">Hora inicio</string>
+    <string name="formato_hora">hh:mm</string>
+    <string name="lbl_HoraFin">Hora fin</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="lbl_password">Contraseña</string>
+    <string name="lbl_correoElectronico">Correo electrónico</string>
+    <string name="lbl_iniciarSesion">Iniciar Sesion</string>
+    <string name="lbl_crearCuenta">Crear Cuenta</string>
+    <string name="lbl_passwordConfirmed">Confirmar contraseña</string>
+    <string name="btn_crear">Crear Cuenta</string>
+    <string name="lbl_datosPersonales">Datos personales</string>
+    <string name="btn_siguiente">Siguiente</string>
+    <string name="lbl_datosUniversitarios">Datos de la universidad</string>
+    <string name="lbl_Universidad">Universidad</string>
+    <string name="lbl_departamento">Departamento</string>
+    <string name="lbl_provincia">Provincia</string>
 </resources>
