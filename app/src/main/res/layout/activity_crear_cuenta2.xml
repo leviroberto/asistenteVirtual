@@ -53,6 +53,13 @@
                     android:paddingTop="@dimen/tamaño_50"
                     android:paddingEnd="@dimen/tamaño_20">
 
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:src="@drawable/ic_perfil"
+                            android:layout_height="150dp">
+                        </ImageView>
+
                     <TextView
                         android:id="@+id/lbl_titulo1"
                         android:layout_width="match_parent"

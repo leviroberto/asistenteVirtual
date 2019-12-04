@@ -50,7 +50,23 @@
                 android:id="@+id/btn_Escvuchar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_microfono"></ImageButton>
+                android:src="@drawable/ic_microfono">
+
+            </ImageButton>
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_view"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:lottie_autoPlay="true"
+                android:layout_gravity="center"
+                app:lottie_imageAssetsFolder="assets"
+                app:lottie_fileName="4316-loading-gaocaisheng.json"
+                app:lottie_loop="true"/>
+
+
+
         </LinearLayout>
 
         <LinearLayout
