@@ -41,7 +41,9 @@ dependencies {
     implementation 'ai.api:sdk:2.0.7@aar'
     implementation 'ai.api:libai:1.6.12'
 
-
+    //animacion para mover la conexion de wifi
+    implementation 'com.airbnb.android:lottie:2.8.0'
+    
     //para alertas toast
     implementation 'com.github.GrenderG:Toasty:1.4.2'
 

@@ -4,92 +4,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login_user"
     tools:context=".Views.IniciarSesionActivity">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/tamaño_5">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_correoElectronico"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            app:passwordToggleEnabled="true">
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="ASISTENTE VIRTUAL"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/lbl_correoElectronico"
-                android:inputType="textAutoComplete"
-                android:textColor="@color/colorPrimaryText" />
-        </com.google.android.material.textfield.TextInputLayout>
+        </TextView>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_contraseña"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            app:passwordToggleEnabled="true">
+            android:layout_gravity="bottom"
+            android:layout_margin="@dimen/tamaño_30"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/lbl_password"
-                android:inputType="textPassword"
-                android:textColor="@color/colorPrimaryText" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:textSize="@dimen/tamaño_18"
+                android:textStyle="bold"
+                android:textColor="@color/blackTextColor"
+                android:text="LOGIN"
+                android:paddingBottom="@dimen/tamaño_10">
 
-        <LinearLayout
-            android:id="@+id/btn_IniciarSesion"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/tamaño_45"
-            android:layout_gravity="end"
+            </TextView>
 
-            android:background="@drawable/bacground_boton_siguiente"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="@dimen/tamaño_30"
-            android:paddingEnd="@dimen/tamaño_30">
-
-            <TextView
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_correoElectronico"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lbl_iniciarSesion"
-                android:textColor="@color/white"
-                android:textSize="@dimen/letra_18"
-                android:textStyle="bold" />
+                android:layout_marginBottom="20dp"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lbl_correoElectronico"
+                    android:inputType="textAutoComplete"
+                    android:textColor="@color/colorPrimaryText" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_contraseña"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lbl_password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/colorPrimaryText" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_IniciarSesion"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tamaño_45"
+                android:layout_gravity="end"
+
+                android:background="@drawable/bacground_boton_siguiente"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/tamaño_30"
+                android:paddingEnd="@dimen/tamaño_30">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_iniciarSesion"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/letra_18"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_crearCuenta"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tamaño_45"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/tamaño_10"
+                android:background="@drawable/bacground_boton_siguiente"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/tamaño_30"
+                android:paddingEnd="@dimen/tamaño_30">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_crearCuenta"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/letra_18"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/btn_crearCuenta"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/tamaño_45"
-            android:layout_gravity="end"
-            android:layout_marginTop="@dimen/tamaño_10"
-            android:background="@drawable/bacground_boton_siguiente"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingStart="@dimen/tamaño_30"
-            android:paddingEnd="@dimen/tamaño_30">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lbl_crearCuenta"
-                android:textColor="@color/white"
-                android:textSize="@dimen/letra_18"
-                android:textStyle="bold" />
-        </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>
