@@ -19,9 +19,15 @@ import android.widget.ImageButton;
 import com.google.gson.JsonElement;
 import com.velasquez.asistentevirtualucv.Adapters.ChatAdapter;
 import com.velasquez.asistentevirtualucv.Models.Clases.Chat;
+import com.velasquez.asistentevirtualucv.Models.Clases.Curso;
+import com.velasquez.asistentevirtualucv.Models.Clases.Tarea;
 import com.velasquez.asistentevirtualucv.Models.Interfaces.IMain;
+import com.velasquez.asistentevirtualucv.Presenters.IMain_Presentor;
 import com.velasquez.asistentevirtualucv.R;
+import com.velasquez.asistentevirtualucv.Utils.DescompilarInformacionIA;
+import com.velasquez.asistentevirtualucv.Utils.Verificador;
 
+import java.util.List;
 import java.util.Map;
 
 import ai.api.AIListener;
@@ -39,34 +45,24 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
     private TextToSpeech textToSpeech;
     private RecyclerView recicler_chat;
     private ChatAdapter chatAdapter;
+    private DescompilarInformacionIA descompilarInformacionIA;
+    private IMain.IMain_Presentor iMain_presentor;
+    private Curso cursoSeleccionado = null;
+    private Tarea tareaSeleccionada = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
-        obtenerXML();
+        obtenerDatosxml();
         inicializadores();
     }
 
-    @Override
-    public void mostrarErrorDeRed() {
-        Toasty.error(this,"Error de red",Toasty.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void obtenerXML() {
-        btn_voice = findViewById(R.id.btn_Escvuchar);
-        recicler_chat = findViewById(R.id.recicler_chat);
-        btn_menu = findViewById(R.id.btn_menu);
-
-        btn_voice.setOnClickListener(this);
-        btn_menu.setOnClickListener(this);
-    }
 
     @Override
     public void inicializadores() {
-        chatAdapter = new ChatAdapter();
+        chatAdapter = new ChatAdapter(this);
         LinearLayoutManager linearLayoutManagerEstado = new LinearLayoutManager(this);
         recicler_chat.setLayoutManager(linearLayoutManagerEstado);
         recicler_chat.setAdapter(chatAdapter);
@@ -94,6 +90,59 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        chatAdapter.eliminarCurso();
+        iMain_presentor.obtenerCursos();
+    }
+
+    @Override
+    public void obtenerCursosCorrecto(List<Curso> listaCurso) {
+        chatAdapter.setListaCurso(listaCurso);
+    }
+
+    @Override
+    public void mostrarCursosChat() {
+        chatAdapter.mostrarCursosChat();
+    }
+
+    @Override
+    public void crearTarea(Tarea tarea) {
+        this.tareaSeleccionada = tarea;
+        cursoSeleccionado = chatAdapter.buscarCurso(tarea.getCurso().getNombre());
+        if (cursoSeleccionado == null) {
+
+        } else {
+            tareaSeleccionada.setCurso(cursoSeleccionado);
+            iMain_presentor.crearTarea(tareaSeleccionada);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public void responder(String descripcion) {
+        textToSpeech.speak(descripcion, TextToSpeech.QUEUE_FLUSH, null, null);
+    }
+
+    @Override
+    public void cursoSeleccionado(String descripcion) {
+        cursoSeleccionado = chatAdapter.buscarCurso(descripcion);
+        if (tareaSeleccionada != null) {
+            tareaSeleccionada.setCurso(cursoSeleccionado);
+            iMain_presentor.crearTarea(tareaSeleccionada);
+        }
+    }
+
+    @Override
+    public void buscarTareaPorFecha(String date) {
+        iMain_presentor.buscarTareaPorFecha(date);
+    }
+
+    @Override
+    public void buscarTareaPorFechaCorrecto(List<Tarea> listTarea) {
+        chatAdapter.buscarTareaPorFechaCorrecto(listTarea);
+    }
 
     protected void makeRequest() {
         ActivityCompat.requestPermissions(this,
@@ -105,20 +154,21 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
     @Override
     public void onResult(AIResponse response) {
         Result result = response.getResult();
-        Result result1 = response.getResult();
         //get parameters
         String parameterString = "";
-        if (result1.getParameters() != null && !result1.getParameters().isEmpty()) {
-            for (final Map.Entry<String, JsonElement> entry : result1.getParameters().entrySet()) {
+        if (result.getParameters() != null && !result.getParameters().isEmpty()) {
+            for (final Map.Entry<String, JsonElement> entry : result.getParameters().entrySet()) {
                 parameterString += "(" + entry.getKey() + ", " + entry.getValue();
             }
         }
 
-        Chat chatUser = new Chat(result1.getResolvedQuery(), Chat.TYPE_USER);
+        Chat chatUser = new Chat(result.getResolvedQuery(), Chat.TYPE_USER_USER, false, Chat.TYPE_DEFECTO);
         chatAdapter.agregar(chatUser);
 
-        Chat chatBoth = new Chat(result.getFulfillment().getSpeech(), Chat.TYPE_BOTH);
+        Chat chatBoth = new Chat(result.getFulfillment().getSpeech(), Chat.TYPE_USER_BOTH, false, Chat.TYPE_DEFECTO);
         chatAdapter.agregar(chatBoth);
+
+        descompilarInformacionIA.verificarAccion(result);
 
 
         //       txt_mensaje.setText("Query: " + result1.getResolvedQuery() +
@@ -133,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
 
         //   }
 
-        textToSpeech.speak(result.getFulfillment().getSpeech(), TextToSpeech.QUEUE_FLUSH, null, null);
+        responder(result.getFulfillment().getSpeech().toString());
     }
 
     @Override
@@ -175,4 +225,68 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
     }
 
 
+    @Override
+    public void obtenerDatosxml() {
+        btn_voice = findViewById(R.id.btn_Escvuchar);
+        recicler_chat = findViewById(R.id.recicler_chat);
+        btn_menu = findViewById(R.id.btn_menu);
+        iMain_presentor = new IMain_Presentor(this);
+        descompilarInformacionIA = new DescompilarInformacionIA(this);
+
+        btn_voice.setOnClickListener(this);
+        btn_menu.setOnClickListener(this);
+    }
+
+    @Override
+    public void mostrarErrorRed() {
+        Toasty.error(this, "Error de red", Toasty.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void habiltarBoton() {
+
+    }
+
+    @Override
+    public void inabilitarBoton() {
+
+    }
+
+    @Override
+    public void llenarDatos() {
+
+    }
+
+    @Override
+    public void guardarDatos() {
+
+    }
+
+    @Override
+    public Object obtenerDatos() {
+        return null;
+    }
+
+    @Override
+    public boolean verificarDatos() {
+        return false;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public void operacionCorrecta(String mensaje) {
+        String formatoTexto = "Vale tu tarea te recordare el " +
+                Verificador.formarFechaHumano(tareaSeleccionada.getFecha()) + " a las " + Verificador.getHora(tareaSeleccionada.getHora());
+        Chat chat = new Chat(formatoTexto, Chat.TYPE_USER_BOTH, false, Chat.TYPE_DEFECTO);
+        chatAdapter.agregar(chat);
+        responder(formatoTexto);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public void operacionIncorrecta(String mensaje) {
+        Chat chat = new Chat(mensaje, Chat.TYPE_USER_USER, false, Chat.TYPE_ERROR);
+        chatAdapter.agregar(chat);
+        responder(mensaje);
+    }
 }

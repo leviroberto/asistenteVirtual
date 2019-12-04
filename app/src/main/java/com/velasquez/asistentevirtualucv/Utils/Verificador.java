@@ -4,10 +4,12 @@ import android.content.Context;
 import android.util.Log;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.velasquez.asistentevirtualucv.Models.Clases.Curso;
 
 import java.net.NetworkInterface;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.Normalizer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -398,6 +400,116 @@ public class Verificador {
 
         }
         return hora;
+    }
+
+
+    public static Curso obtenerPorcentajeCoincidencia(String texto, List<Curso> listaCurso) {
+        String textoNormalizado = Normalizer.normalize(texto, Normalizer.Form.NFD);
+        String textoSinTilde = textoNormalizado.replaceAll("[^\\p{ASCII}]", "");
+        textoSinTilde = textoSinTilde.toLowerCase().toString();
+        Curso curso = null;
+        int resultado;
+        for (Curso entrada : listaCurso) {
+            String normalizarCadena = Normalizer.normalize(entrada.getNombre(), Normalizer.Form.NFD);
+            String sintildeCadena = normalizarCadena.replaceAll("[^\\p{ASCII}]", "");
+            sintildeCadena = sintildeCadena.toLowerCase().toString();
+            resultado = sintildeCadena.toLowerCase().indexOf(textoSinTilde);
+            if (resultado > -1) {
+                curso = entrada;
+                break;
+            }
+        }
+        return curso;
+    }
+
+
+    public static String getHora(String date) {
+        String array[] = date.split(":");
+        return formato12(array[0], array[1]);
+    }
+
+
+    public static String formato12(String hora, String minutos) {
+        int fecha = Integer.parseInt(hora);
+        String resultado = "";
+        if (fecha > 12) {
+            fecha = fecha - 12;
+            resultado = fecha + ":" + hora + " PM";
+        } else {
+            resultado = fecha + ":" + hora + " AM";
+        }
+        return resultado;
+
+    }
+
+    public static String formarFechaHumano(String date) {
+        String array1[] = date.split(" ");//fecha hora
+        String array2[] = array1[0].split("-");//fecha
+        String letra = array2[2] + " de " + getMonthText(Integer.parseInt(array2[1]) - 1) + " del " + array2[0];
+        return letra;
+    }
+
+
+    public static String getMonthText(int mes) {
+        String result = "";
+
+        switch (mes) {
+            case 0: {
+                result = "Enero";
+                break;
+            }
+            case 1: {
+                result = "Febrero";
+                break;
+            }
+            case 2: {
+                result = "Marzo";
+                break;
+            }
+            case 3: {
+                result = "Abril";
+                break;
+            }
+            case 4: {
+                result = "Mayo";
+                break;
+            }
+            case 5: {
+                result = "Junio";
+                break;
+            }
+            case 6: {
+                result = "Julio";
+                break;
+            }
+            case 7: {
+                result = "Agosto";
+                break;
+            }
+            case 8: {
+                result = "Septiembre";
+                break;
+            }
+            case 9: {
+                result = "Octubre";
+                break;
+            }
+            case 10: {
+                result = "Noviembre";
+                break;
+            }
+            case 11: {
+                result = "Diciembre";
+                break;
+            }
+            default: {
+                result = "Error";
+                break;
+            }
+        }
+
+        return result;
+
     }
 
 

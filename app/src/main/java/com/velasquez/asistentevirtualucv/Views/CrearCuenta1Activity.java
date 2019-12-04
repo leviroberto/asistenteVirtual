@@ -52,6 +52,7 @@ public class CrearCuenta1Activity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_Siguiente:
+
                 guardarDatos();
                 break;
         }
