@@ -14,12 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Views.CrearCuenta2Activity"></activity>
+        <activity android:name=".Views.MenuActivity" />
+        <activity android:name=".Views.CrearCuenta2Activity" />
         <activity android:name=".Views.CrearCuenta1Activity" />
         <activity android:name=".Views.CrearCuentaActivity" />
         <activity android:name=".Views.MainActivity" />
         <activity android:name=".Views.AgregarCursoActivity" />
-        <activity android:name=".Views.AgrearDocenteActivity" />
         <activity android:name=".Views.IniciarSesionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

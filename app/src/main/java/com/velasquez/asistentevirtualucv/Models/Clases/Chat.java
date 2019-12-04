@@ -1,4 +1,4 @@
-package com.velasquez.asistentevirtualucv.Models;
+package com.velasquez.asistentevirtualucv.Models.Clases;
 
 public class Chat {
     private String id;

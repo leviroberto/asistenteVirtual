@@ -14,6 +14,7 @@
         android:padding="@dimen/tamaño_5">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_correoElectronico"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,6 +30,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_contraseña"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,7 +46,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
-            android:id="@+id/btn_Siguiente"
+            android:id="@+id/btn_IniciarSesion"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tamaño_45"
             android:layout_gravity="end"

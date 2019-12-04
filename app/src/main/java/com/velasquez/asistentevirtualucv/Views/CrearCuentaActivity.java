@@ -9,25 +9,24 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
-import com.velasquez.asistentevirtualucv.Interfaces.ICrearCuenta_Presentor;
-import com.velasquez.asistentevirtualucv.Interfaces.ICrearCuenta_View;
-import com.velasquez.asistentevirtualucv.Interfaces.IDocente_Presenter;
-import com.velasquez.asistentevirtualucv.Interfaces.IDocente_View;
-import com.velasquez.asistentevirtualucv.Models.Docente;
-import com.velasquez.asistentevirtualucv.Presenters.CrearCuenta_Presenter;
-import com.velasquez.asistentevirtualucv.Presenters.Docente_Presenter;
+import com.velasquez.asistentevirtualucv.Models.Clases.Docente;
+import com.velasquez.asistentevirtualucv.Models.Interfaces.ICrearCuenta;
+import com.velasquez.asistentevirtualucv.Presenters.CrearCuenta_Presentor;
 import com.velasquez.asistentevirtualucv.R;
-import com.velasquez.asistentevirtualucv.Utils.Mensajes;
 import com.velasquez.asistentevirtualucv.Utils.Verificador;
 
 import es.dmoral.toasty.Toasty;
 
 
-public class CrearCuentaActivity extends AppCompatActivity implements ICrearCuenta_View, View.OnClickListener {
+
+
+
+public class CrearCuentaActivity extends AppCompatActivity implements View.OnClickListener, ICrearCuenta.ICrearCuenta_View {
 
     private TextInputLayout txt_correoElectronico, txt_contraseña;
     private LinearLayout btn_crearCuenta;
-    private ICrearCuenta_Presentor iCrearCuenta_presentor;
+    private ICrearCuenta.ICrearCuenta_Presentor iCrearCuenta_presentor;
+    private Docente docente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +34,7 @@ public class CrearCuentaActivity extends AppCompatActivity implements ICrearCuen
         setContentView(R.layout.activity_crear_cuenta);
         getSupportActionBar().hide();
         obtenerDatosxml();
+        docente = new Docente();
     }
 
     @Override
@@ -42,7 +42,7 @@ public class CrearCuentaActivity extends AppCompatActivity implements ICrearCuen
         txt_correoElectronico = findViewById(R.id.txt_correoElectronico);
         txt_contraseña = findViewById(R.id.txt_contraseña);
         btn_crearCuenta = findViewById(R.id.btn_crearCuenta);
-        iCrearCuenta_presentor = new CrearCuenta_Presenter(this);
+        iCrearCuenta_presentor = new CrearCuenta_Presentor(this);
         btn_crearCuenta.setOnClickListener(this);
     }
 
@@ -61,7 +61,7 @@ public class CrearCuentaActivity extends AppCompatActivity implements ICrearCuen
 
     @Override
     public void mostrarErrorRed() {
-
+        Toasty.error(this, "Error de red", Toasty.LENGTH_LONG).show();
     }
 
     @Override
@@ -84,27 +84,30 @@ public class CrearCuentaActivity extends AppCompatActivity implements ICrearCuen
     @Override
     public void guardarDatos() {
         if (verificarDatos()) {
-            String email = txt_correoElectronico.getEditText().getText().toString();
-            String password = txt_contraseña.getEditText().getText().toString();
-            iCrearCuenta_presentor.crearCuenta(email, password);
+            iCrearCuenta_presentor.VerificarEmail(txt_correoElectronico.getEditText().getText().toString());
         }
     }
 
     @Override
     public Object obtenerDatos() {
-        return null;
+        docente.setCorreoElectronico(txt_correoElectronico.getEditText().getText().toString());
+        docente.setContraseña(txt_contraseña.getEditText().getText().toString());
+        return docente;
     }
 
     @Override
     public void operacionCorrecta(String mensaje) {
+        obtenerDatos();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Docente", docente);
         Intent intent = new Intent(this, CrearCuenta1Activity.class);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
     @Override
     public void operacionIncorrecta(String mensaje) {
         Toasty.warning(this, mensaje, Toast.LENGTH_SHORT, true).show();
-
     }
 
     @Override

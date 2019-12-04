@@ -113,21 +113,10 @@
                                 android:textColor="@color/colorPrimaryText" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/txt_dia"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        <Spinner
+                            android:id="@+id/spinnerDias"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="20dp"
-                            app:passwordToggleEnabled="true">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/lbl_dia"
-                                android:inputType="textAutoComplete"
-                                android:textColor="@color/colorPrimaryText" />
-                        </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_height="wrap_content" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -135,12 +124,12 @@
                             android:orientation="horizontal">
 
                             <com.google.android.material.textfield.TextInputLayout
-                               android:layout_weight="1"
                                 android:id="@+id/txt_horaInicio"
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="20dp"
+                                android:layout_weight="1"
                                 app:passwordToggleEnabled="true">
 
                                 <com.google.android.material.textfield.TextInputEditText
@@ -152,7 +141,37 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <ImageButton
-                                android:onClick="obtenerHora"
+                                android:id="@+id/btn_abrirHoraInicio"
+                                android:layout_width="wrap_content"
+                                android:layout_height="62dp"
+                                android:src="@drawable/ic_time" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/txt_horaFin"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="20dp"
+                                android:layout_weight="1"
+
+                                app:passwordToggleEnabled="true">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/lbl_HoraFin"
+                                    android:inputType="textAutoComplete"
+                                    android:textColor="@color/colorPrimaryText" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageButton
+                                android:id="@+id/btn_abrirHoraFin"
                                 android:layout_width="wrap_content"
                                 android:layout_height="62dp"
 
@@ -160,37 +179,7 @@
                         </LinearLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/txt_horaFin"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="20dp"
-                            app:passwordToggleEnabled="true">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/lbl_HoraFin"
-                                android:inputType="textAutoComplete"
-                                android:textColor="@color/colorPrimaryText" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="20dp"
-                            app:passwordToggleEnabled="true">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/lbl_periodo"
-                                android:inputType="textAutoComplete"
-                                android:textColor="@color/colorPrimaryText" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/txt_seccion"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -202,10 +191,12 @@
                                 android:layout_height="wrap_content"
                                 android:hint="@string/lbl_seccion"
                                 android:inputType="textAutoComplete"
+                                android:maxLength="2"
                                 android:textColor="@color/colorPrimaryText" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/txt_ciclo"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -216,15 +207,37 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/lbl_ciclo"
-                                android:inputType="textAutoComplete"
+
+                                android:inputType="number"
+                                android:maxLength="2"
                                 android:textColor="@color/colorPrimaryText" />
                         </com.google.android.material.textfield.TextInputLayout>
 
 
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/radio_Activo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="Activo" />
+
+                            <RadioButton
+                                android:id="@+id/radio_Terminado"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Terminado" />
+
+                        </RadioGroup>
+
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/btn_Siguiente"
+                        android:id="@+id/btn_Crear"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/tamaño_45"
                         android:layout_gravity="end"

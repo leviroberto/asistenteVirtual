@@ -1,4 +1,4 @@
-package com.velasquez.asistentevirtualucv.Models;
+package com.velasquez.asistentevirtualucv.Models.Clases;
 
 import java.util.Date;
 

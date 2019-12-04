@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.velasquez.asistentevirtualucv.Models.Chat;
+import com.velasquez.asistentevirtualucv.Models.Clases.Chat;
 import com.velasquez.asistentevirtualucv.R;
 
 import java.util.ArrayList;

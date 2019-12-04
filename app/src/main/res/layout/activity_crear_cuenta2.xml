@@ -82,6 +82,7 @@
 
 
                         <LinearLayout
+                            android:layout_marginBottom="@dimen/tamaño_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -90,27 +91,33 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/lbl_Universidad" />
+                            <TextView
+                                android:id="@+id/lbl_universidad"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/lbl_Universidad" />
 
-                            <Spinner
-                                android:id="@+id/spinnerUniversidad"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content" />
+
                         </LinearLayout>
 
                         <LinearLayout
+                            android:layout_marginBottom="@dimen/tamaño_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            >
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/lbl_departamento" />
 
-                            <Spinner
-                                android:id="@+id/spinnerDepartamento"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/lbl_despartamento"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/lbl_departamento" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -121,11 +128,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/lbl_provincia" />
+                            <TextView
+                                android:id="@+id/lbl_provincia"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/lbl_provincia" />
 
-                            <Spinner
-                                android:id="@+id/spinnerProvincia"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content" />
+
                         </LinearLayout>
 
 

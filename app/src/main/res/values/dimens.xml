@@ -75,6 +75,7 @@
     <dimen name="letra_17">17sp</dimen>
     <dimen name="letra_15">15sp</dimen>
     <dimen name="letra_14">14sp</dimen>
+    <dimen name="tama150">150</dimen>
 
 
 </resources>

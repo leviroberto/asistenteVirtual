@@ -1,29 +1,30 @@
-package com.velasquez.asistentevirtualucv.Models;
+package com.velasquez.asistentevirtualucv.Models.Clases;
 
 public class Curso {
     private String id;
     private String nombre;
-    private int creditos;
+    private String creditos;
     private String horaInicio;
     private String horaFin;
     private String periodo;
     private String seccion;
     private String ciclo;
     private String estado;
-    private Docente docente;
+    private String docente_Id;
+
 
     public static final String ESTADO_ACTIVO = "Activo";
-    public static final String ESTADO_INACTIVO = "Inactivo";
+    public static final String ESTADO_TERMINADO = "Terminado";
 
     public Curso() {
     }
 
-    public Docente getDocente() {
-        return docente;
+    public String getDocente_Id() {
+        return docente_Id;
     }
 
-    public void setDocente(Docente docente) {
-        this.docente = docente;
+    public void setDocente_Id(String docente_Id) {
+        this.docente_Id = docente_Id;
     }
 
     public String getId() {
@@ -42,11 +43,11 @@ public class Curso {
         this.nombre = nombre;
     }
 
-    public int getCreditos() {
+    public String getCreditos() {
         return creditos;
     }
 
-    public void setCreditos(int creditos) {
+    public void setCreditos(String creditos) {
         this.creditos = creditos;
     }
 

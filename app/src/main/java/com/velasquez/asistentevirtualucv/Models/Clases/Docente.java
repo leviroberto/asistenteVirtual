@@ -1,6 +1,8 @@
-package com.velasquez.asistentevirtualucv.Models;
+package com.velasquez.asistentevirtualucv.Models.Clases;
 
-public class Docente {
+import java.io.Serializable;
+
+public class Docente implements Serializable {
     private String id;
     private String correoElectronico;
     private String contraseña;
