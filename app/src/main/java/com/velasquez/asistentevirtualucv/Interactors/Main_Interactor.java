@@ -108,7 +108,7 @@ public class Main_Interactor implements IMain.IMain_Interactor {
                                     listTarea.add(tarea);
 
                                 }
-                                
+
                                 iMain_presentor.buscarTareaPorFechaCorrecto(listTarea);
                             } else {
                                 iMain_presentor.operacionIncorrecta("No hay tareas por la fecha buscada");
