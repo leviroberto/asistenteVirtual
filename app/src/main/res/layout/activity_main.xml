@@ -47,16 +47,18 @@
             android:gravity="center"
             android:orientation="vertical">
             <ImageButton
+
                 android:background="#fff"
                 android:id="@+id/btn_Escvuchar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_microffon">
+                android:src="@drawable/ic_microffon"/>
 
-            </ImageButton>
 
 
             <com.airbnb.lottie.LottieAnimationView
+
+                android:visibility="gone"
                 android:id="@+id/animation_view"
                 android:layout_width="30dp"
                 android:layout_height="30dp"

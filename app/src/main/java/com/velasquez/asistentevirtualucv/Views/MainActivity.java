@@ -40,7 +40,7 @@ import es.dmoral.toasty.Toasty;
 
 
 public class MainActivity extends AppCompatActivity implements IMain.IMain_View, AIListener, View.OnClickListener {
-    private ImageButton btn_voice, btn_menu;
+    private ImageButton btn_Escvuchar, btn_menu;
     private AIService aiService;
     private TextToSpeech textToSpeech;
     private RecyclerView recicler_chat;
@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
     private IMain.IMain_Presentor iMain_presentor;
     private Curso cursoSeleccionado = null;
     private Tarea tareaSeleccionada = null;
+
+    private LottieAnimationView  animation_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -215,6 +217,7 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_Escvuchar:
+
                 aiService.startListening();
                 break;
             case R.id.btn_menu:
@@ -227,13 +230,14 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
 
     @Override
     public void obtenerDatosxml() {
-        btn_voice = findViewById(R.id.btn_Escvuchar);
+        btn_Escvuchar = findViewById(R.id.btn_Escvuchar);
         recicler_chat = findViewById(R.id.recicler_chat);
         btn_menu = findViewById(R.id.btn_menu);
+        animation_view = findViewById(R.id.animation_view);
         iMain_presentor = new IMain_Presentor(this);
         descompilarInformacionIA = new DescompilarInformacionIA(this);
 
-        btn_voice.setOnClickListener(this);
+        btn_Escvuchar.setOnClickListener(this);
         btn_menu.setOnClickListener(this);
     }
 
