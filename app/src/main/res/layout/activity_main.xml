@@ -15,7 +15,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recicler_chat"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
 
     </LinearLayout>
@@ -33,10 +35,11 @@
             android:gravity="center"
             android:orientation="vertical">
             <ImageButton
+                android:background="@color/white"
                 android:id="@+id/btn_menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_opciones"
+                android:src="@drawable/ic_task"
                 ></ImageButton>
         </LinearLayout>
 

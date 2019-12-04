@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.ImageButton;
@@ -126,6 +127,10 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
     @Override
     public void responder(String descripcion) {
         textToSpeech.speak(descripcion, TextToSpeech.QUEUE_FLUSH, null, null);
+        SystemClock.sleep(4000);
+        btn_Escvuchar.setVisibility(View.GONE);
+        animation_view.setVisibility(View.VISIBLE);
+        aiService.startListening();
     }
 
     @Override
@@ -156,6 +161,8 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onResult(AIResponse response) {
+        btn_Escvuchar.setVisibility(View.VISIBLE);
+        animation_view.setVisibility(View.GONE);
         Result result = response.getResult();
         //get parameters
         String parameterString = "";
@@ -218,12 +225,18 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_Escvuchar:
-
+                btn_Escvuchar.setVisibility(View.GONE);
+                animation_view.setVisibility(View.VISIBLE);
                 aiService.startListening();
                 break;
             case R.id.btn_menu:
                 Intent intent = new Intent(this, MenuActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.animation_view:
+                btn_Escvuchar.setVisibility(View.VISIBLE);
+                animation_view.setVisibility(View.GONE);
+                aiService.stopListening();
                 break;
         }
     }
@@ -240,6 +253,7 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
 
         btn_Escvuchar.setOnClickListener(this);
         btn_menu.setOnClickListener(this);
+        animation_view.setOnClickListener(this);
     }
 
     @Override

@@ -33,20 +33,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_margin="@dimen/tamaño_30"
-            android:layout_weight="1"
+
+            android:layout_margin="@dimen/tamaño_40"
             android:gravity="bottom"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/tamaño_10">
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/tamaño_18"
-                android:textStyle="bold"
-                android:textColor="@color/blackTextColor"
+                android:paddingTop="@dimen/tamaño_20"
+                android:paddingBottom="@dimen/tamaño_10"
                 android:text="LOGIN"
-                android:paddingBottom="@dimen/tamaño_10">
+                android:textColor="@color/blackTextColor"
+                android:textSize="@dimen/tamaño_18"
+                android:textStyle="bold">
 
             </TextView>
 

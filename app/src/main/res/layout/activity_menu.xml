@@ -32,36 +32,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="horizontal">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
                     <LinearLayout
-                        android:layout_weight="1"
+
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/tamaño_40"
+                        android:layout_marginEnd="@dimen/tamaño_5"
+                        android:layout_weight="1"
                         android:background="@drawable/background_items"
                         android:gravity="center"
-                        android:layout_marginEnd="@dimen/tamaño_5"
                         android:orientation="horizontal">
 
                         <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:background="@color/white"
                             android:src="@drawable/ic_courses" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="¿Què puedes hacer?"></TextView>
+                            android:text="¿Què puedes hacer?">
+
+                        </TextView>
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/btn_agregarCurso"
-                        android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/tamaño_40"
+                        android:layout_weight="1"
                         android:background="@drawable/background_items"
                         android:gravity="center"
                         android:orientation="horizontal">
@@ -69,7 +74,8 @@
                         <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_courses" />
+                            android:background="@color/white"
+                            android:src="@drawable/ic_agregar_curso" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -77,7 +83,185 @@
                             android:text="Agregar Curso"></TextView>
                     </LinearLayout>
                 </LinearLayout>
+
+
             </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/tamaño_10">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Que puedo hacer">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/tamaño_10"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/tamaño_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_items">
+
+                    <ImageView
+                        android:layout_weight="5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_tareas">
+
+                    </ImageView>
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tareas">
+
+                        </TextView>
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Agregar nuevas tareas">
+
+                        </TextView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/tamaño_10"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/tamaño_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_items">
+
+                    <ImageView
+                        android:layout_weight="5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_buscar_tareas">
+
+                    </ImageView>
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Buscar">
+
+                        </TextView>
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Buscar tareas para hoy">
+
+                        </TextView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/tamaño_10"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/tamaño_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_items">
+
+                    <ImageView
+                        android:layout_weight="5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_buscar_tareas">
+
+                    </ImageView>
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Buscar">
+
+                        </TextView>
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Buscar tareas para mañana">
+
+                        </TextView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/tamaño_10"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/tamaño_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_items">
+
+                    <ImageView
+                        android:layout_weight="5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_buscar_tareas">
+
+                    </ImageView>
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Buscar">
+
+                        </TextView>
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Buscar tareas para un dia especifico">
+
+                        </TextView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

@@ -80,7 +80,8 @@ public class AgregarCursoActivity extends AppCompatActivity implements ICurso.IC
         String[] universidades = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
         spinnerDias.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, universidades));
 
-
+        txt_horaInicio.setEnabled(false);
+        txt_horaFin.setEnabled(false);
         btn_abrirHoraInicio.setOnClickListener(this);
         btn_abrirHoraFin.setOnClickListener(this);
         btn_Crear.setOnClickListener(this);
