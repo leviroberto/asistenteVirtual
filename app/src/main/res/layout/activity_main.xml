@@ -47,10 +47,11 @@
             android:gravity="center"
             android:orientation="vertical">
             <ImageButton
+                android:background="#fff"
                 android:id="@+id/btn_Escvuchar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_microfono">
+                android:src="@drawable/ic_microffon">
 
             </ImageButton>
 
@@ -75,6 +76,14 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
+
+            <ImageButton
+                android:background="#fff"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_alarmar"
+                android:layout_height="wrap_content">
+
+            </ImageButton>
 
         </LinearLayout>
 
