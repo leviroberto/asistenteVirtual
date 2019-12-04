@@ -6,20 +6,38 @@ public class Tarea {
 
 
     private String id;
-    private Date fecha;
+    private String fecha;
     private String hora;
     private String titulo;
-    private Carrera carrera;
+    private Curso curso;
+    private String docente_id;
+    private String estado;
 
     public Tarea() {
     }
 
-    public Carrera getCarrera() {
-        return carrera;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setCarrera(Carrera carrera) {
-        this.carrera = carrera;
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getDocente_id() {
+        return docente_id;
+    }
+
+    public void setDocente_id(String docente_id) {
+        this.docente_id = docente_id;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 
     public String getId() {
@@ -30,11 +48,11 @@ public class Tarea {
         this.id = id;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
