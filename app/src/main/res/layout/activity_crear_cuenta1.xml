@@ -180,6 +180,7 @@
 
 
         <Button
+            android:visibility="invisible"
             android:id="@+id/btn_Error"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tamaño_15"

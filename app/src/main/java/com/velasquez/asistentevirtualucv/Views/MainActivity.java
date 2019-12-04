@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.JsonElement;
 import com.velasquez.asistentevirtualucv.Adapters.ChatAdapter;
 import com.velasquez.asistentevirtualucv.Models.Clases.Chat;
@@ -51,9 +52,9 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
     private IMain.IMain_Presentor iMain_presentor;
     private Curso cursoSeleccionado = null;
     private Tarea tareaSeleccionada = null;
-
+    private ImageButton btnSalir;
     private LottieAnimationView animation_view;
-
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -238,6 +239,12 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
                 animation_view.setVisibility(View.GONE);
                 aiService.stopListening();
                 break;
+            case R.id.btnSalir:
+                mAuth.signOut();
+                Intent intents = new Intent(this, IniciarSesionActivity.class);
+                intents.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intents);
+                break;
         }
     }
 
@@ -250,10 +257,12 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
         animation_view = findViewById(R.id.animation_view);
         iMain_presentor = new IMain_Presentor(this);
         descompilarInformacionIA = new DescompilarInformacionIA(this);
-
+        btnSalir = findViewById(R.id.btnSalir);
+        btnSalir.setOnClickListener(this);
         btn_Escvuchar.setOnClickListener(this);
         btn_menu.setOnClickListener(this);
         animation_view.setOnClickListener(this);
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override

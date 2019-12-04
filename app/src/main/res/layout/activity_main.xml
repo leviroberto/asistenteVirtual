@@ -83,6 +83,7 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:id="@+id/btnSalir"
                 android:background="#fff"
                 android:layout_width="wrap_content"
                 android:src="@drawable/ic_alarmar"

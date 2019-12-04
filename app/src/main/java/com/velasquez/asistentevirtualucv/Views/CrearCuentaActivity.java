@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -18,15 +20,13 @@ import com.velasquez.asistentevirtualucv.Utils.Verificador;
 import es.dmoral.toasty.Toasty;
 
 
-
-
-
 public class CrearCuentaActivity extends AppCompatActivity implements View.OnClickListener, ICrearCuenta.ICrearCuenta_View {
 
     private TextInputLayout txt_correoElectronico, txt_contraseña;
     private LinearLayout btn_crearCuenta;
     private ICrearCuenta.ICrearCuenta_Presentor iCrearCuenta_presentor;
     private Docente docente;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +42,11 @@ public class CrearCuentaActivity extends AppCompatActivity implements View.OnCli
         txt_correoElectronico = findViewById(R.id.txt_correoElectronico);
         txt_contraseña = findViewById(R.id.txt_contraseña);
         btn_crearCuenta = findViewById(R.id.btn_crearCuenta);
+
         iCrearCuenta_presentor = new CrearCuenta_Presentor(this);
         btn_crearCuenta.setOnClickListener(this);
+
+
     }
 
     @Override
