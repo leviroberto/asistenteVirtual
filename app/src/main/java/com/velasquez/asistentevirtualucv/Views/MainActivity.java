@@ -16,6 +16,7 @@ import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.gson.JsonElement;
 import com.velasquez.asistentevirtualucv.Adapters.ChatAdapter;
 import com.velasquez.asistentevirtualucv.Models.Clases.Chat;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
     private Curso cursoSeleccionado = null;
     private Tarea tareaSeleccionada = null;
 
-    private LottieAnimationView  animation_view;
+    private LottieAnimationView animation_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
