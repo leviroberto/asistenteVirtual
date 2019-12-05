@@ -24,6 +24,7 @@ public class CrearCuenta2Activity extends AppCompatActivity implements View.OnCl
     private String universidad = "Universidad Cesar Vallejo";
     private ICrearCuenta.ICrearCuenta_Presentor iCrearCuenta_presentor;
     private LinearLayout btn_Siguiente;
+    private TextView textBotonSiguiente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class CrearCuenta2Activity extends AppCompatActivity implements View.OnCl
         lbl_universidad = findViewById(R.id.lbl_universidad);
         iCrearCuenta_presentor = new CrearCuenta_Presentor(this);
         btn_Siguiente = findViewById(R.id.btn_Siguiente);
+        textBotonSiguiente = findViewById(R.id.textBotonSiguiente);
         btn_Siguiente.setOnClickListener(this);
 
     }
@@ -75,12 +77,14 @@ public class CrearCuenta2Activity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void habiltarBoton() {
+        textBotonSiguiente.setText(R.string.btn_siguiente);
         btn_Siguiente.setEnabled(true);
 
     }
 
     @Override
     public void inabilitarBoton() {
+        textBotonSiguiente.setText("Espere...");
         btn_Siguiente.setEnabled(false);
     }
 

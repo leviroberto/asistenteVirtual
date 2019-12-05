@@ -54,7 +54,7 @@ public class Main_Interactor implements IMain.IMain_Interactor {
                                 }
                                 iMain_presentor.obtenerCursosCorrecto(listCurso);
                             } else {
-                                iMain_presentor.operacionIncorrecta("No fue posible obtener curso");
+                                iMain_presentor.operacionIncorrecta("No tiene cursos registrados");
                             }
 
                         }
@@ -62,7 +62,7 @@ public class Main_Interactor implements IMain.IMain_Interactor {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                iMain_presentor.operacionIncorrecta("No fue posible obtener curso");
+                iMain_presentor.operacionIncorrecta("No tiene cursos registrados");
 
             }
         });
@@ -122,7 +122,7 @@ public class Main_Interactor implements IMain.IMain_Interactor {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                iMain_presentor.operacionIncorrecta("No fue posible obtener curso");
+                iMain_presentor.operacionIncorrecta("No hay tareas por la fecha buscada ");
 
             }
         });

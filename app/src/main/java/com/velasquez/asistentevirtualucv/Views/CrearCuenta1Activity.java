@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.velasquez.asistentevirtualucv.Models.Clases.Docente;
@@ -25,6 +26,7 @@ public class CrearCuenta1Activity extends AppCompatActivity implements View.OnCl
     private TextInputLayout txt_apellidos, txt_nombre, txt_dni;
     private Docente docente;
     private LinearLayout btn_Siguiente;
+    private TextView textBotonSiguiente;
 
 
     @Override
@@ -64,6 +66,7 @@ public class CrearCuenta1Activity extends AppCompatActivity implements View.OnCl
         txt_nombre = findViewById(R.id.txt_nombre);
         txt_dni = findViewById(R.id.txt_dni);
         btn_Siguiente = findViewById(R.id.btn_Siguiente);
+        textBotonSiguiente = findViewById(R.id.textBotonSiguiente);
 
 
         btn_Siguiente.setOnClickListener(this);
@@ -77,11 +80,13 @@ public class CrearCuenta1Activity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void habiltarBoton() {
+        textBotonSiguiente.setText(R.string.btn_siguiente);
         btn_Siguiente.setEnabled(true);
     }
 
     @Override
     public void inabilitarBoton() {
+        textBotonSiguiente.setText("Espere...");
         btn_Siguiente.setEnabled(false);
     }
 

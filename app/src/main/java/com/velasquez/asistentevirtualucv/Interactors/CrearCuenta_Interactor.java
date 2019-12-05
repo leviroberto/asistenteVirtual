@@ -71,7 +71,7 @@ public class CrearCuenta_Interactor implements ICrearCuenta.ICrearCuenta_Interac
     public void crearCuenta(final Docente docente) {
         try {
             db.enableNetwork();
-            mAuth.createUserWithEmailAndPassword(docente.getCorreoElectronico(), docente.getApellidos())
+            mAuth.createUserWithEmailAndPassword(docente.getCorreoElectronico(), docente.getContraseña())
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {

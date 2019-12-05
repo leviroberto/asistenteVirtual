@@ -23,6 +23,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginBottom="@dimen/tamaño_10"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"

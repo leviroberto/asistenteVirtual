@@ -54,11 +54,10 @@
                     android:paddingEnd="@dimen/tamaño_20">
 
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:src="@drawable/ic_perfil"
-                            android:layout_height="150dp">
-                        </ImageView>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:src="@drawable/ic_perfil"></ImageView>
 
                     <TextView
                         android:id="@+id/lbl_titulo1"
@@ -89,15 +88,16 @@
 
 
                         <LinearLayout
-                            android:layout_marginBottom="@dimen/tamaño_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/tamaño_5"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/lbl_Universidad" />
+
                             <TextView
                                 android:id="@+id/lbl_universidad"
                                 android:layout_width="match_parent"
@@ -108,11 +108,10 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_marginBottom="@dimen/tamaño_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            >
+                            android:layout_marginBottom="@dimen/tamaño_5"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -131,10 +130,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/lbl_provincia" />
+
                             <TextView
                                 android:id="@+id/lbl_provincia"
                                 android:layout_width="match_parent"
@@ -186,13 +187,13 @@
 
 
         <Button
-            android:visibility="invisible"
             android:id="@+id/btn_Error"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tamaño_15"
             android:background="@color/colorOrange"
             android:text="@string/lbl_SinInternet"
             android:textColor="@color/white"
-            android:textSize="@dimen/letra_10" />
+            android:textSize="@dimen/letra_10"
+            android:visibility="invisible" />
     </LinearLayout>
 </RelativeLayout>

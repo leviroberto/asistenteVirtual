@@ -41,4 +41,5 @@
     <string name="lbl_Universidad">Universidad</string>
     <string name="lbl_departamento">Departamento</string>
     <string name="lbl_provincia">Provincia</string>
+    <string name="lbl_login">Espere...</string>
 </resources>

@@ -1,9 +1,12 @@
 package com.velasquez.asistentevirtualucv.Views;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +26,8 @@ public class IniciarSesionActivity extends AppCompatActivity implements View.OnC
     private TextInputLayout txt_correoElectronico, txt_contraseña;
     private IInicioSesion.IIniciarSesion_Presentor iIniciarSesion_presentor;
     private FirebaseAuth mAuth;
+    private TextView lbl_login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +40,11 @@ public class IniciarSesionActivity extends AppCompatActivity implements View.OnC
     protected void onStart() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            if (currentUser.isEmailVerified()) {
+
                 Intent intent = new Intent(IniciarSesionActivity.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
-            } else {
-                txt_correoElectronico.setError("Falta verificar su cuenta");
-            }
+
 
         }
         super.onStart();
@@ -66,6 +69,7 @@ public class IniciarSesionActivity extends AppCompatActivity implements View.OnC
         txt_contraseña = findViewById(R.id.txt_contraseña);
         btn_crearCuenta = findViewById(R.id.btn_crearCuenta);
         btn_IniciarSesion = findViewById(R.id.btn_IniciarSesion);
+        lbl_login = findViewById(R.id.lbl_login);
         iIniciarSesion_presentor = new IniciarSesion_Presentor(this);
         mAuth = FirebaseAuth.getInstance();
         btn_crearCuenta.setOnClickListener(this);
@@ -79,12 +83,15 @@ public class IniciarSesionActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void habiltarBoton() {
+        lbl_login.setText(R.string.lbl_iniciarSesion);
         btn_IniciarSesion.setEnabled(true);
         btn_crearCuenta.setEnabled(true);
     }
 
+
     @Override
     public void inabilitarBoton() {
+        lbl_login.setText(R.string.lbl_login);
         btn_IniciarSesion.setEnabled(false);
         btn_crearCuenta.setEnabled(false);
     }

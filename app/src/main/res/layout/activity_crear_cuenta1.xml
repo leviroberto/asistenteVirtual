@@ -156,6 +156,7 @@
                         android:paddingEnd="@dimen/tamaño_30">
 
                         <TextView
+
                             android:id="@+id/textBotonSiguiente"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

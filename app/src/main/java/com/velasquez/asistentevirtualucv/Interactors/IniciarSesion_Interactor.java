@@ -31,21 +31,17 @@ public class IniciarSesion_Interactor extends AppCompatActivity implements IInic
 
     @Override
     public void iniciarSesion(final Docente iniciarSesion) {
+
         mAuth.signInWithEmailAndPassword(iniciarSesion.getCorreoElectronico(), iniciarSesion.getContraseña())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            FirebaseUser currentUser = mAuth.getCurrentUser();
-                            if (currentUser != null) {
-                                if (currentUser.isEmailVerified()) {
+                            iIniciarSesion_presentor.operacionCorrecta("Inicio sesion correcta");
+                        } else {
+                            mAuth.signOut();
+                            iIniciarSesion_presentor.operacionIncorrecta("Error al iniciar sesion");
 
-                                    iIniciarSesion_presentor.operacionCorrecta("Inicio sesion correcta");
-                                } else {
-                                    mAuth.signOut();
-                                    iIniciarSesion_presentor.operacionIncorrecta("Error al iniciar sesion");
-                                }
-                            }
                         }
                     }
                 })

@@ -247,6 +247,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+
                         android:id="@+id/btn_Crear"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/tamaño_45"
@@ -285,6 +286,7 @@
 
 
         <Button
+            android:visibility="gone"
             android:id="@+id/btn_Error"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tamaño_15"

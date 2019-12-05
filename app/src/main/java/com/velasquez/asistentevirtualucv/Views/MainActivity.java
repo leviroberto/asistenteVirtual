@@ -128,10 +128,6 @@ public class MainActivity extends AppCompatActivity implements IMain.IMain_View,
     @Override
     public void responder(String descripcion) {
         textToSpeech.speak(descripcion, TextToSpeech.QUEUE_FLUSH, null, null);
-        SystemClock.sleep(4000);
-        btn_Escvuchar.setVisibility(View.GONE);
-        animation_view.setVisibility(View.VISIBLE);
-        aiService.startListening();
     }
 
     @Override
